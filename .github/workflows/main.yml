@@ -13,7 +13,7 @@ jobs:
     - name: connect and pull
       run: |
         ssh -tt root@103.179.172.248
-        ${{ secrets.SSH_PASSWORD }}
+        2S2BFUqtj2hjNe1W
         cd product_landing_page
         git checkout main
         git pull origin main
