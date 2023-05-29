@@ -15,7 +15,7 @@ jobs:
       
     - name: connect and pull
       uses: appleboy/ssh-action@v0.1.10
-      with: |
+      with:
         host: 103.179.172.248
         username: root
         password: 2S2BFUqtj2hjNe1W
