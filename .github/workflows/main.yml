@@ -16,9 +16,9 @@ jobs:
     - name: connect and pull
       uses: appleboy/ssh-action@master
       with: |
-        host: ${{ secrets.SSH_HOST }} 
-        username: ${{ secrets.SSH_USER }} 
-        password: ${{ secrets.SSH_PASSWORD }}
+        host: "${{ secrets.SSH_HOST }}"
+        username: "${{ secrets.SSH_USER }}"
+        password: "${{ secrets.SSH_PASSWORD }}"
         port: 
         script: | 
           cd product_landing_page
