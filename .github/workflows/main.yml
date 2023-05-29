@@ -16,9 +16,9 @@ jobs:
     - name: connect and pull
       uses: appleboy/ssh-action@v0.1.10
       with: |
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USER }}
-        password: ${{ secrets.SSH_PASSWORD }}
+        host: 103.179.172.248
+        username: root
+        password: 2S2BFUqtj2hjNe1W
         script: | 
           cd product_landing_page
           git checkout main
