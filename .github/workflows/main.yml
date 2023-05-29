@@ -11,11 +11,16 @@ jobs:
     
     steps: 
     - name: connect and pull
-      run: |
-        ssh -tt root@103.179.172.248 & 2S2BFUqtj2hjNe1W
-        cd product_landing_page
-        git checkout main
-        git pull origin main
+      uses: appleboy/ssh-action@master
+      with: |
+        host: ${{ secrets.SSH_HOST }} 
+        username: ${{ secrets.SSH_USER }} 
+        password: ${{ secrets.SSH_PASSWORD }}
+        port: 
+        script: | 
+          cd product_landing_page
+          git checkout main
+          git pull origin main
         
     - name: run server
       run: python3 -m http.server 8080
