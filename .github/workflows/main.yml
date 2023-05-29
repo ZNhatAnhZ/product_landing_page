@@ -25,8 +25,8 @@ jobs:
           git pull origin main
         
     - name: clear port 8080
-      run: fuser -n tcp -k 9001 
+      run: (fuser -n tcp -k 9001) || true
       
-    - name: clear port 8080
+    - name: run server
       run: python3 -c "import subprocess; subprocess.Popen(["python", "-m", "http.server", "8080"]); exit()"
 
