@@ -25,8 +25,8 @@ jobs:
           git pull origin main
         
     - name: clear port 8080
-      run: (fuser -n tcp -k 9001) || true
+      run: (fuser -n tcp -k 8080) || true
       
     - name: run server
-      run: python3 -c "import subprocess; subprocess.Popen(['python3', '-m', 'http.server', '8080']); exit()"
+      run: RUNNER_TRACKING_ID="" && (python3 -c "import subprocess; subprocess.Popen(['python3', '-m', 'http.server', '8080']); exit()")
 
