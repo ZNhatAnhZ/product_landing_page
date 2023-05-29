@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  
+jobs:
+  run_pull:
+    name: run pull
+    runs-on: ubuntu-latest
+    
+    steps: 
+    - name: connect and pull
+      run: |
+        ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+        secrets.SSH_PASSWORD
+        cd product_landing_page
+        git checkout main
+        git pull origin main
+        
+    - name: run server
+      run: python3 -m http.server 8080
+    
