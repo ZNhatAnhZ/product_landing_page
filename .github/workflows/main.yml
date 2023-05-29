@@ -16,14 +16,20 @@ jobs:
     - name: connect and pull
       uses: appleboy/ssh-action@v0.1.10
       with:
-        host: 103.179.172.248
-        username: root
-        password: 2S2BFUqtj2hjNe1W
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        password: ${{ secrets.SSH_PASSWORD }}
         script: | 
           cd product_landing_page
           git checkout main
           git pull origin main
         
     - name: run server
-      run: python3 -m http.server 8080
+      run: |
+        freeport 8080
+        yes
+        python3
+        import subprocess
+        subprocess.Popen(["python", "-m", "http.server", "8080"])
+        exit()
     
