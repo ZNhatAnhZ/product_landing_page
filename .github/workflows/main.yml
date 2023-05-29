@@ -28,5 +28,5 @@ jobs:
       run: (fuser -n tcp -k 9001) || true
       
     - name: run server
-      run: python3 -c "import subprocess; subprocess.Popen(["python", "-m", "http.server", "8080"]); exit()"
+      run: python3 -c "import subprocess; subprocess.Popen(["python3", "-m", "http.server", "8080"]); exit()"
 
