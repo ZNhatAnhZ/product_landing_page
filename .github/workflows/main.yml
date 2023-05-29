@@ -12,7 +12,7 @@ jobs:
     steps: 
     - name: connect and pull
       run: |
-        ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+        ssh -tt ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
         secrets.SSH_PASSWORD
         cd product_landing_page
         git checkout main
