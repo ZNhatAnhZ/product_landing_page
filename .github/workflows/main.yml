@@ -26,13 +26,6 @@ jobs:
         
     - name: run server
       run: |
-        python3
-        "import subprocess"
-        "subprocess.Popen(["python", "-m", "http.server", "8080"])"
-        "exit()"
-        sudo kill $(lsof -t -i:8080)
-        python3
-        "import subprocess"
-        "subprocess.Popen(["python", "-m", "http.server", "8080"])"
-        "exit()"
-    
+        fuser -n tcp -k 9001 
+        python3 -c "import subprocess; subprocess.Popen(["python", "-m", "http.server", "8080"]); exit()"
+
