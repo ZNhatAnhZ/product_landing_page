@@ -25,4 +25,4 @@ jobs:
           git pull origin main
           fuser -n tcp -k 3001
           python3 -c "import subprocess; subprocess.Popen(['python3', '-m', 'http.server', '3001']); exit()"
-          ls -al
+          exit
