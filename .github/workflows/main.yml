@@ -28,5 +28,5 @@ jobs:
       run: (fuser -n tcp -k 8080) || true
       
     - name: run server
-      run: RUNNER_TRACKING_ID="" && (python3 -c "import subprocess; subprocess.Popen(['python3', '-m', 'http.server', '8080']); exit()")
+      run: RUNNER_TRACKING_ID="" && (sudo python3 -c "import subprocess; subprocess.Popen(['python3', '-m', 'http.server', '8080']); exit()")
 
