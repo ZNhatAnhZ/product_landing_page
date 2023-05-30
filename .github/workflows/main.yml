@@ -21,12 +21,11 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
         script: | 
           cd product_landing_page
-          git checkout main
           git pull origin main
         
     - name: clear port 3001
       run: (fuser -n tcp -k 3001) || true
       
     - name: run server
-      run: RUNNER_TRACKING_ID="" && (sudo python3 -c "import subprocess; subprocess.Popen(['python3', '-m', 'http.server', '3001']); exit()")
+      run: RUNNER_TRACKING_ID="" && (python3 -c "import subprocess; subprocess.Popen(['python3', '-m', 'http.server', '3001']); exit()")
 
