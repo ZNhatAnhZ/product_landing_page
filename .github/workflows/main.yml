@@ -19,12 +19,13 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         password: ${{ secrets.SSH_PASSWORD }}
+        port: 22
         script: | 
           cd product_landing_page
           git pull origin main
         
     - name: clear port 3001
-      run: (fuser -n tcp -k 3001) || true
+      run: (sudo fuser -n tcp -k 3001) || true
       
     - name: run server
       run: RUNNER_TRACKING_ID="" && (python3 -c "import subprocess; import time; subprocess.Popen(['python3', '-m', 'http.server', '3001']); time.sleep(5); exit()")
