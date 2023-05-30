@@ -24,9 +24,9 @@ jobs:
           git checkout main
           git pull origin main
         
-    - name: clear port 8000
-      run: (fuser -n tcp -k 8000) || true
+    - name: clear port 3000
+      run: (fuser -n tcp -k 3000) || true
       
     - name: run server
-      run: RUNNER_TRACKING_ID="" && (sudo python3 -c "import subprocess; subprocess.Popen(['python3', '-m', 'http.server', '8000']); exit()")
+      run: RUNNER_TRACKING_ID="" && (sudo python3 -c "import subprocess; subprocess.Popen(['python3', '-m', 'http.server', '3000']); exit()")
 
