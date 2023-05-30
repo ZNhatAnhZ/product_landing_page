@@ -23,5 +23,6 @@ jobs:
         script: | 
           cd product_landing_page
           git pull origin main
-          sudo fuser -n tcp -k 3001
-          python3 -c "import subprocess; import time; subprocess.Popen(['python3', '-m', 'http.server', '3001']); exit()"
+          fuser -n tcp -k 3001
+          python3 -c "import subprocess; subprocess.Popen(['python3', '-m', 'http.server', '3001']); exit()"
+          ls -al
